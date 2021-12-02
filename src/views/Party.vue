@@ -1,13 +1,5 @@
 <template>
   <div>
-    <div class="wrapper">
-      <div class="search">
-        <form class="pure-form">
-          <i class="fas fa-search"></i><input v-model="searchText" />
-        </form>
-      </div>
-    </div>
-
     <div>
       <PokemonList :pokemonList="pokemonList" />
     </div>
@@ -15,7 +7,7 @@
 </template>
 
 <script>
-import PokemonList from "../components/PokemonList.vue";
+import PokemonList from "../components/PartyList.vue";
 export default {
   name: "Home",
   components: {
@@ -28,10 +20,7 @@ export default {
   },
   computed: {
     pokemonList() {
-      return this.$root.$data.pokemonList.filter(
-        (pokemon) =>
-          pokemon.name.toLowerCase().search(this.searchText.toLowerCase()) >= 0
-      );
+      return this.$root.$data.party;
     },
   },
 };
